@@ -1,0 +1,35 @@
+/*
+ * List of ESLINT Rules
+ * https://eslint.org/docs/rules/
+ */
+{
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+    "sourceType": "module",
+    "parser": "babel-eslint"
+  },
+  "extends": ["airbnb-base", "prettier", "plugin:vue/vue3-recommended"],
+  "plugins": ["import", "prettier", "vue"],
+  "rules": {
+    "indent": 0,
+    "semi": 0,
+    "no-unused-vars": 0,
+    "linebreak-style": 0,
+    "comma-dangle": 0,
+    "prettier/prettier": ["error", {
+      "endOfLine": "auto"
+    }],
+    "import/no-unresolved": 0,
+    "import/no-extraneous-dependencies": 0,
+    "vue/no-v-html": "off",
+    "vue/max-attributes-per-line": "off",
+    "vue/singleline-html-element-content-newline": "off",
+    "vue/html-self-closing": ["error", {
+      "html": {
+        "void": "always",
+        "normal": "never",
+        "component": "any"
+      }
+    }]
+  }
+}

@@ -1,0 +1,8 @@
+{
+    "name": "vue-skeleton-generator",
+    "version": "1.0.0",
+    "description": "A Vue CLI generator to create code based on templates",
+    "preferGlobal": true,
+    "license": "MIT"
+  }
+  
