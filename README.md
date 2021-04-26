@@ -16,5 +16,5 @@
 - [Lint Staged](https://github.com/okonet/lint-staged)
 
 # Documentation
-- [Vue Skeleton: Wiki]()
+- [Vue Skeleton: Wiki](https://github.com/the-unknown-code/vue-skeleton/wiki)
 - [Vue Skeleton: Template generator]()
