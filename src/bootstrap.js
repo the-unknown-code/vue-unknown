@@ -8,16 +8,20 @@ import { RouteNames } from '@/router/routes'
 import getStore from '@/store'
 import i18nSetup, { loadLocale } from '@/plugins/i18n'
 import InstallPlugin from '@/utils/InstallPlugin'
+import RegisterPlugin from '@/utils/RegisterPlugin'
 import WaitForStylesheetsLoaded from '@/utils/WaitForStylesheetsLoaded'
 import createPath from '@/utils/RouteUtils'
 import { getVersioned, getStatic } from '@/utils/AssetPath'
 import config, { Property, Variable, Environment } from '@/config'
 import $eventBus, { Events } from '@/events'
 import { SET_LOCALE } from '@/store/modules/Application'
+import directives from '@/directives'
 import App from './app/App.vue'
 
 const store = getStore()
 const app = createApp(App)
+
+RegisterPlugin.registerDirectives(app, directives)
 
 const startup = async () => {
   store.commit(SET_LOCALE, config.properties[Property.DEFAULT_LOCALE])
