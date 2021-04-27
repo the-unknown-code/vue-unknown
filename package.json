@@ -6,7 +6,7 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production node dev-tools/config/scripts/build.js",
     "analyze": "npm run build -- --analyze",
-    "dev": "cross-env TAILWIND_MODE=build NODE_ENV=development webpack serve --devtool inline-source-map --config dev-tools/config/webpack.config.dev.js",
+    "dev": "cross-env NODE_ENV=development webpack serve --devtool inline-source-map --config dev-tools/config/webpack.config.dev.js",
     "preinstall": "npx use-yarn",
     "prettify": "prettier --write \"src/**/*.{js,ts,scss}\"",
     "preview": "node dev-tools/config/scripts/preview.js",
@@ -29,6 +29,8 @@
     "@babel/core": "^7.13.15",
     "@babel/preset-env": "^7.13.15",
     "@intlify/vue-i18n-loader": "^2.1.0",
+    "@tailwindcss/line-clamp": "^0.2.0",
+    "@tailwindcss/typography": "^0.4.0",
     "@vue/cli-plugin-babel": "^4.5.12",
     "@vue/cli-shared-utils": "^4.5.12",
     "@vue/compiler-sfc": "^3.0.11",
@@ -105,6 +107,7 @@
     "webpack-cli": "^4.6.0",
     "webpack-dashboard": "^3.3.1",
     "webpack-dev-server": "^3.11.2",
-    "webpackbar": "^5.0.0-3"
+    "webpackbar": "^5.0.0-3",
+    "workbox-webpack-plugin": "^6.1.5"
   }
 }

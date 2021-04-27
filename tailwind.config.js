@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 module.exports = {
   mode: 'jit',
   purge: {
@@ -11,5 +12,5 @@ module.exports = {
     // Replace the default Tailwind config here
   },
   corePlugins: {},
-  plugins: []
+  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/line-clamp')]
 }
