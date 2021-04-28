@@ -2,10 +2,10 @@ export default {
   register(app, data, type) {
     Object.keys(data).forEach((key) => app[type](key, data[key]))
   },
-  registerComponents(app, component) {
-    this.register(app, component, 'component')
+  registerComponents(app, components) {
+    this.register(app, components, 'component')
   },
-  registerDirectives(app, directive) {
-    this.register(app, directive, 'directive')
+  registerDirectives(app, directives) {
+    this.register(app, directives, 'directive')
   }
 }

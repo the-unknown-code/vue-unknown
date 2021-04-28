@@ -16,26 +16,20 @@ import config, { Property, Variable, Environment } from '@/config'
 import $eventBus, { Events } from '@/events'
 import { SET_LOCALE } from '@/store/modules/Application'
 import directives from '@/directives'
+import components from '@/components'
 import App from './app/App.vue'
 
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker
-      .register('/service-worker.js')
-      .then((registration) => {
-        console.log('SW registered: ', registration)
-      })
-      .catch((registrationError) => {
-        console.log('SW registration failed: ', registrationError)
-      })
-  })
-}
+// Service worker (works only in production mode)
+require('@/utils/ServiceWorker')
 
 const store = getStore()
 const app = createApp(App)
 
+// Register global directives and components
 RegisterPlugin.registerDirectives(app, directives)
+RegisterPlugin.registerComponents(app, components)
 
+const $devMode = process.env.NODE_ENV === Environment.DEVELOPMENT
 const startup = async () => {
   store.commit(SET_LOCALE, config.properties[Property.DEFAULT_LOCALE])
   app.use(InstallPlugin, {
@@ -43,6 +37,7 @@ const startup = async () => {
     $vRoot: config.variables[Variable.VERSIONED_STATIC_ROOT],
     $sRoot: config.variables[Variable.STATIC_ROOT],
     $eventBus,
+    $devMode,
     Events,
     RouteNames,
     createPath,
@@ -50,7 +45,7 @@ const startup = async () => {
     getStatic
   })
 
-  if (process.env.NODE_ENV === Environment.DEVELOPMENT) await WaitForStylesheetsLoaded(document)
+  if ($devMode) await WaitForStylesheetsLoaded(document)
   app.use(store).use(router).mount('#app')
 }
 

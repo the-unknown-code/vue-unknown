@@ -1,6 +1,7 @@
 /* eslint-disable global-require */
 module.exports = {
   mode: 'jit',
+  presets: [require('./tailwind.preset.js')],
   purge: {
     content: ['./index.html', './style/*', './src/**/*.{vue,js,ts,jsx,tsx}'],
     layers: ['base', 'components', 'utilities'],

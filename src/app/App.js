@@ -4,11 +4,6 @@ import { SET_STAGE, CHANGE_LOCALE } from '@/store/modules/Application'
 
 export default defineComponent({
   name: 'App',
-  computed: {
-    version() {
-      return `${process.env.PACKAGE_VERSION} - ${process.env.VERSION} - ${process.env.BRANCH}`
-    }
-  },
   created() {
     window.addEventListener(this.Events.RESIZE, this.onResizeHandler)
     this.onResizeHandler()
