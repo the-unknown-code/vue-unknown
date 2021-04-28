@@ -8,17 +8,28 @@ import { RouteNames } from '@/router/routes'
 import getStore from '@/store'
 import i18nSetup, { loadLocale } from '@/plugins/i18n'
 import InstallPlugin from '@/utils/InstallPlugin'
+import RegisterPlugin from '@/utils/RegisterPlugin'
 import WaitForStylesheetsLoaded from '@/utils/WaitForStylesheetsLoaded'
 import createPath from '@/utils/RouteUtils'
 import { getVersioned, getStatic } from '@/utils/AssetPath'
 import config, { Property, Variable, Environment } from '@/config'
 import $eventBus, { Events } from '@/events'
 import { SET_LOCALE } from '@/store/modules/Application'
+import directives from '@/directives'
+import components from '@/components'
 import App from './app/App.vue'
+
+// Service worker (works only in production mode)
+require('@/utils/ServiceWorker')
 
 const store = getStore()
 const app = createApp(App)
 
+// Register global directives and components
+RegisterPlugin.registerDirectives(app, directives)
+RegisterPlugin.registerComponents(app, components)
+
+const $devMode = process.env.NODE_ENV === Environment.DEVELOPMENT
 const startup = async () => {
   store.commit(SET_LOCALE, config.properties[Property.DEFAULT_LOCALE])
   app.use(InstallPlugin, {
@@ -26,6 +37,7 @@ const startup = async () => {
     $vRoot: config.variables[Variable.VERSIONED_STATIC_ROOT],
     $sRoot: config.variables[Variable.STATIC_ROOT],
     $eventBus,
+    $devMode,
     Events,
     RouteNames,
     createPath,
@@ -33,7 +45,7 @@ const startup = async () => {
     getStatic
   })
 
-  if (process.env.NODE_ENV === Environment.DEVELOPMENT) await WaitForStylesheetsLoaded(document)
+  if ($devMode) await WaitForStylesheetsLoaded(document)
   app.use(store).use(router).mount('#app')
 }
 

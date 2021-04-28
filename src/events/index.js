@@ -10,5 +10,6 @@ export default {
 }
 
 export const Events = {
-  CLICK: 'click'
+  CLICK: 'click',
+  RESIZE: 'resize'
 }

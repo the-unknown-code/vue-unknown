@@ -1,26 +1,24 @@
 import { defineComponent } from 'vue'
-import { mapActions } from 'vuex'
-import { CHANGE_LOCALE } from '@/store/modules/Application'
+import { mapActions, mapMutations } from 'vuex'
+import { SET_STAGE, CHANGE_LOCALE } from '@/store/modules/Application'
 
 export default defineComponent({
   name: 'App',
-  computed: {
-    version() {
-      return `${process.env.PACKAGE_VERSION} - ${process.env.VERSION} - ${process.env.BRANCH}`
-    }
-  },
-  watch: {
-    // eslint-disable-next-line object-shorthand
-    '$i18n.locale'() {
-      this.$router.replace({ name: this.$route.name, params: { lang: this.$i18n.locale } })
-    }
-  },
-  mounted() {
-    // this.$router.replace({ name: this.RouteNames.HOMEPAGE, params: { lang: 'ja' } })
+  created() {
+    window.addEventListener(this.Events.RESIZE, this.onResizeHandler)
+    this.onResizeHandler()
   },
   methods: {
     ...mapActions({
       changeLanguage: CHANGE_LOCALE
-    })
+    }),
+    ...mapMutations({
+      setStage: SET_STAGE
+    }),
+    onResizeHandler() {
+      const { innerWidth, innerHeight } = window
+      this.setStage({ sw: innerWidth, sh: innerHeight })
+      this.$eventBus.$emit(this.Events.RESIZE)
+    }
   }
 })
