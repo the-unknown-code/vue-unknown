@@ -1,19 +1,20 @@
-import { Environment } from '@/config'
+import config, { Variable, Environment } from '@/config'
 
-console.log(process.env.NODE_ENV, Environment.PRODUCTION)
-if (process.env.NODE_ENV === Environment.PRODUCTION && 'serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker
-      .register('/service-worker.js')
-      .then((registration) => {
-        // eslint-disable-next-line no-console
-        console.log('Service Worker  registered: ', registration)
-      })
-      .catch((registrationError) => {
-        // eslint-disable-next-line no-console
-        console.log('Service Worker  registration failed: ', registrationError)
-      })
-  })
-} else {
-  console.warn('Service Worker disabled in development mode')
+if (config.variables[Variable.SERVICE_WORKER_ENABLED]) {
+  if (process.env.NODE_ENV === Environment.PRODUCTION && 'serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker
+        .register('/service-worker.js')
+        .then((registration) => {
+          // eslint-disable-next-line no-console
+          console.log('Service Worker  registered: ', registration)
+        })
+        .catch((registrationError) => {
+          // eslint-disable-next-line no-console
+          console.log('Service Worker  registration failed: ', registrationError)
+        })
+    })
+  } else {
+    console.warn('Service Worker disabled')
+  }
 }
