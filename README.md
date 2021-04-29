@@ -9,6 +9,7 @@
 - [Vue i18n](https://github.com/intlify/vue-i18n-next)
 - [Webpack](https://webpack.js.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
+- [Service Worker](https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin)
 - [SCSS](https://sass-lang.com/)
 - [Axios](https://github.com/axios/axios)
 - [Airbnb Coding Standard](https://github.com/airbnb/javascript)

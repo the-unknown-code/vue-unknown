@@ -1,0 +1,35 @@
+version 0.2
+
+phases:
+  install:
+    commands:
+      - echo update npm
+      - npm install -g n
+      - n latest
+      - npm update -g npm
+      - echo node -v
+      - node -v
+      - echo npm -v
+      - npm -v
+      - echo install yarn...
+      - npm install -g yarn
+      - echo yarn -v
+      - yarn -v
+  pre-build:
+    commands:
+      - echo Installing source NPM dependencies...
+      - yarn
+  build:
+    command:
+      - echo Build started on `date`
+      - echo Compiling the node.js code
+      - yarn build
+  post_build:
+    command:
+      - echo Build completed on `date`
+      - echo Distribuiting to S3
+      - aws s3 sync dist s3://cloudfront-vue-skeleton --delete --acl public-read
+artifacts:
+  files:
+    - dist
+    
