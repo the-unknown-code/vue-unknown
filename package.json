@@ -1,6 +1,6 @@
 {
   "name": "vue-skeleton",
-  "version": "2.0.0-1",
+  "version": "0.0.1",
   "description": "A Vue Framework",
   "author": "Andrea Giuffrida",
   "scripts": {
@@ -11,7 +11,10 @@
     "prettify": "prettier --write \"src/**/*.{js,ts,scss}\"",
     "preview": "node dev-tools/config/scripts/preview.js",
     "prepare": "husky install",
-    "generate": "node dev-tools/scripts/bin/generate.js"
+    "generate": "node dev-tools/scripts/bin/generate.js",
+    "patch": "npm version patch && npm run build",
+    "minor": "npm version minor && npm run build", 
+    "major": "npm version major && npm run build"
   },
   "license": "ISC",
   "main": "src/bootstrap.js",
