@@ -1,5 +1,6 @@
 import { Environment } from '@/config'
 
+console.log(process.env.NODE_ENV, Environment.PRODUCTION)
 if (process.env.NODE_ENV === Environment.PRODUCTION && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker
