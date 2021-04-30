@@ -13,6 +13,5 @@ export default (route) => {
     }
   }
 
-  console.log(route)
   return route
 }

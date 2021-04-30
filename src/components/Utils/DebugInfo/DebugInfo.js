@@ -7,7 +7,7 @@ export default defineComponent({
   extends: AbstractComponent,
   setup() {
     return {
-      version: `v${process.env.PACKAGE_VERSION} - ${process.env.VERSION} - ${process.env.BRANCH}`
+      version: `${process.env.VERSION}`
     }
   }
 })

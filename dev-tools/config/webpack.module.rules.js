@@ -1,5 +1,6 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
+const path = require('path')
 
 module.exports = ({ config, isDevelopment }) => (webpackConfig) => ({
   ...webpackConfig,
@@ -73,9 +74,13 @@ module.exports = ({ config, isDevelopment }) => (webpackConfig) => ({
         ]
       },
       {
-        test: /\.(woff|woff2)$/,
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         use: {
-          loader: 'url-loader'
+          loader: 'file-loader',
+          options: {
+            limit: 10000,
+            name: path.posix.join(isDevelopment ? '' : config.dist.versionPath, 'fonts/[name].[ext]')
+          }
         }
       },
       {

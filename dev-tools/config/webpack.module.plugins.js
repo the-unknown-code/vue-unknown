@@ -19,6 +19,10 @@ module.exports = ({ config, buildType, isDevelopment }) => (webpackConfig) => {
         {
           from: 'static',
           to: isDevelopment ? 'static' : `${config.dist.versionPath}static`
+        },
+        {
+          from: 'static-root',
+          to: ''
         }
       ]
     }),

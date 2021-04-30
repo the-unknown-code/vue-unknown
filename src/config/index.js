@@ -8,7 +8,8 @@ export const Variable = {
   LOCALE_ROUTING_ENABLED: 'locale-routing-enabled',
   STATIC_ROOT: 'static-root',
   PUBLIC_PATH: 'public-path',
-  VERSIONED_STATIC_ROOT: 'versioned-static-root'
+  VERSIONED_STATIC_ROOT: 'versioned-static-root',
+  SERVICE_WORKER_ENABLED: 'service-worker'
 }
 
 export const Property = {
@@ -30,6 +31,7 @@ const availableLanguages = ['en', 'ja']
 export default {
   environment: process.env.NODE_ENV,
   variables: {
+    [Variable.SERVICE_WORKER_ENABLED]: true,
     [Variable.LOCALE_ENABLED]: true,
     [Variable.LOCALE_ROUTING_ENABLED]: true,
     [Variable.VERSIONED_STATIC_ROOT]: `${window.webpackPublicPath || process.env.PUBLIC_PATH}${process.env.VERSIONED_STATIC_ROOT}`,

@@ -10,7 +10,7 @@ const defaultLocale = config.properties[Property.DEFAULT_LOCALE]
 
 routes.push({
   path: ':pathMatch(.*)*',
-  redirect: (to) => ({
+  redirect: () => ({
     name: RouteNames.HOMEPAGE,
     params: { lang: defaultLocale }
   })
@@ -33,7 +33,7 @@ const parsedRoutes = !isLocaleEnabled
       },
       {
         path: '/:pathMatch(.*)*',
-        redirect: (to) => ({
+        redirect: () => ({
           name: RouteNames.HOMEPAGE,
           params: { lang: defaultLocale }
         })
