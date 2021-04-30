@@ -1,5 +1,6 @@
 # Vue Skeleton
 ## A web framework based on Vue 3
+![Vue Skeleton](https://github.com/the-unknown-code/vue-skeleton/blob/develop/static/images/vue-skeleton-logo.png?raw=true)
 
 # Features 
 - [Vuex](https://next.vuex.vuejs.org/)
