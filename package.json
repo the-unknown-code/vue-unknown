@@ -15,7 +15,8 @@
     "generate": "node dev-tools/scripts/bin/generate.js",
     "build:patch": "npm version patch --no-git-tag-version & npm run build",
     "build:minor": "npm version minor --no-git-tag-version & npm run build",
-    "build:major": "npm version major --no-git-tag-version & npm run build"
+    "build:major": "npm version major --no-git-tag-version & npm run build",
+    "spa": "poi build"
   },
   "license": "ISC",
   "main": "src/bootstrap.js",

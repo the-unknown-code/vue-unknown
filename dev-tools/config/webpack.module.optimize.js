@@ -12,7 +12,12 @@ module.exports = ({ config, isDevelopment }) => (webpackConfig) => ({
         minimizer: [
           (compiler) => {
             new TerserPlugin({
-              parallel: true
+              parallel: true,
+              terserOptions: {
+                compress: {
+                  drop_console: true
+                }
+              }
             }).apply(compiler)
           },
           new CssMinimizerPlugin()

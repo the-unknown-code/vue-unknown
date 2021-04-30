@@ -15,6 +15,7 @@ if (config.variables[Variable.SERVICE_WORKER_ENABLED]) {
         })
     })
   } else {
+    // eslint-disable-next-line no-console
     console.warn('Service Worker disabled')
   }
 }
