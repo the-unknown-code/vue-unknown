@@ -1,8 +1,9 @@
 {
   "name": "vue-skeleton",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A Vue Framework",
   "author": "Andrea Giuffrida",
+  "homepage": "https://github.com/the-unknown-code/vue-skeleton",
   "scripts": {
     "build": "cross-env NODE_ENV=production node dev-tools/config/scripts/build.js",
     "analyze": "npm run build -- --analyze",
@@ -12,9 +13,9 @@
     "preview": "node dev-tools/config/scripts/preview.js",
     "prepare": "husky install",
     "generate": "node dev-tools/scripts/bin/generate.js",
-    "build:patch": "npm version patch && npm run build",
-    "build:minor": "npm version minor && npm run build",
-    "build:major": "npm version major && npm run build"
+    "build:patch": "npm version patch --no-git-tag-version & npm run build",
+    "build:minor": "npm version minor --no-git-tag-version & npm run build",
+    "build:major": "npm version major --no-git-tag-version & npm run build"
   },
   "license": "ISC",
   "main": "src/bootstrap.js",
