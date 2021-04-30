@@ -1,8 +1,8 @@
 {
   "name": "vue-skeleton",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Vue Framework",
-  "author": "Andrea Giuffrida",
+  "author": "TheUnknown hello@theunknown.ch",
   "homepage": "https://github.com/the-unknown-code/vue-skeleton",
   "scripts": {
     "build": "cross-env NODE_ENV=production node dev-tools/config/scripts/build.js",
@@ -13,22 +13,23 @@
     "preview": "node dev-tools/config/scripts/preview.js",
     "prepare": "husky install",
     "generate": "node dev-tools/scripts/bin/generate.js",
-    "build:patch": "npm version patch --no-git-tag-version & npm run build",
-    "build:minor": "npm version minor --no-git-tag-version & npm run build",
-    "build:major": "npm version major --no-git-tag-version & npm run build",
-    "spa": "poi build"
+    "patch": "npm version patch --no-git-tag-version",
+    "minor": "npm version minor --no-git-tag-version",
+    "major": "npm version major --no-git-tag-version"
   },
   "license": "ISC",
   "main": "src/bootstrap.js",
   "dependencies": {
     "axios": "^0.21.1",
     "core-js": "^3.10.2",
+    "gsap": "^3.0.0-beta.11",
     "mitt": "^2.1.0",
     "regenerator-runtime": "^0.13.7",
     "vue": "^3.0.11",
     "vue-i18n": "^9.1.6",
     "vue-router": "^4.0.6",
-    "vuex": "^4.0.0"
+    "vuex": "^4.0.0",
+    "vuex-router-sync": "^6.0.0-rc.1"
   },
   "devDependencies": {
     "@babel/core": "^7.13.15",
