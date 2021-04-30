@@ -19,7 +19,7 @@ const BuildType = {
  *
  */
 
-const publicPath = (argv && argv.publicPath) || '/'
+const publicPath = (argv && argv.path) || '/'
 
 /*
  *

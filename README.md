@@ -1,6 +1,5 @@
 # Vue Skeleton
 ## A web framework based on Vue 3
-##### Author: Andrea Giuffrida
 
 # Features 
 - [Vuex](https://next.vuex.vuejs.org/)
@@ -17,5 +16,5 @@
 - [Lint Staged](https://github.com/okonet/lint-staged)
 
 # Documentation
-- [Vue Skeleton: Wiki](https://github.com/the-unknown-code/vue-skeleton/wiki)
+- [Vue Skeleton: Wiki](https://github.com/the-unknown-code/vue-skeleton/wiki/Documentation)
 - [Vue Skeleton: Template generator]()

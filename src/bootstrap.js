@@ -3,6 +3,7 @@ import '../style/main.scss'
 
 import axios from 'axios'
 import { createApp } from 'vue'
+import { sync } from 'vuex-router-sync'
 import router from '@/router'
 import { RouteNames } from '@/router/routes'
 import getStore from '@/store'
@@ -31,6 +32,8 @@ RegisterPlugin.registerComponents(app, components)
 
 const $devMode = process.env.NODE_ENV === Environment.DEVELOPMENT
 const startup = async () => {
+  sync(store, router)
+
   store.commit(SET_LOCALE, config.properties[Property.DEFAULT_LOCALE])
   app.use(InstallPlugin, {
     $http: axios,
