@@ -48,8 +48,8 @@ export default {
     [Variable.PUBLIC_PATH]: `${window.webpackPublicPath || process.env.PUBLIC_PATH}`
   },
   urls: {
-    [URL.DEVELOPMENT_API_URL]: '',
-    [URL.PRODUCTION_API_URL]: ''
+    [URL.DEVELOPMENT_API_URL]: '::prod',
+    [URL.PRODUCTION_API_URL]: '::dev'
   },
   properties: {
     [Property.FALLBACK_LOCALE]: availableLanguages[0],

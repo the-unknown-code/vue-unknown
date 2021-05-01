@@ -13,6 +13,7 @@ module.exports = ({ config, isDevelopment }) => (webpackConfig) => ({
           (compiler) => {
             new TerserPlugin({
               parallel: true,
+              extractComments: false,
               terserOptions: {
                 compress: {
                   drop_console: true
@@ -28,7 +29,14 @@ module.exports = ({ config, isDevelopment }) => (webpackConfig) => ({
             vendor: {
               test: /[\\/]node_modules[\\/]/,
               name: 'vendors',
-              chunks: 'all'
+              chunks: 'all',
+              priority: -10,
+              reuseExistingChunk: true
+            },
+            default: {
+              minChunks: 2,
+              priority: -20,
+              reuseExistingChunk: true
             }
           }
         }
