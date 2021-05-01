@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="block max-w-md my-2 mx-auto">
-      <a href="#" class="font-semibold hover:underline">Wiki</a>
+      <a href="https://github.com/the-unknown-code/vue-skeleton/wiki/Documentation" target="_blank" class="font-semibold hover:underline">Wiki</a>
     </div>
   </div>
 </template>
