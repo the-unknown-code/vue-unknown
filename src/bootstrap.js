@@ -13,6 +13,7 @@ import RegisterPlugin from '@/utils/RegisterPlugin'
 import WaitForStylesheetsLoaded from '@/utils/WaitForStylesheetsLoaded'
 import createPath from '@/utils/RouteUtils'
 import { getVersioned, getStatic } from '@/utils/AssetPath'
+import MediaTracker, { MediaState } from '@/utils/MediaTracker'
 import config, { Property, Variable, Environment } from '@/config'
 import $eventBus, { Events } from '@/events'
 import { SET_LOCALE } from '@/store/modules/Application'
@@ -39,10 +40,12 @@ const startup = async () => {
     $http: axios,
     $vRoot: config.variables[Variable.VERSIONED_STATIC_ROOT],
     $sRoot: config.variables[Variable.STATIC_ROOT],
+    $mediaTracker: new MediaTracker(store),
     $eventBus,
     $devMode,
     Events,
     RouteNames,
+    MediaState,
     createPath,
     getVersioned,
     getStatic
