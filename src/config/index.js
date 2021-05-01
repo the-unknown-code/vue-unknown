@@ -33,7 +33,7 @@ export const URL = {
 const { pathname } = window.location
 const language = pathname.split('/')[1]
 const defaultLanguage = language.length ? language.toLowerCase() : 'en'
-const availableLanguages = ['en', 'ja']
+const availableLanguages = ['en']
 
 export default {
   environment: process.env.NODE_ENV,
@@ -41,7 +41,7 @@ export default {
     [Variable.THEME_MODE_ENABLED]: true,
     [Variable.THEME_MODE]: window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? Theme.DARK : Theme.LIGHT,
     [Variable.SERVICE_WORKER_ENABLED]: true,
-    [Variable.LOCALE_ENABLED]: true,
+    [Variable.LOCALE_ENABLED]: false,
     [Variable.LOCALE_ROUTING_ENABLED]: true,
     [Variable.VERSIONED_STATIC_ROOT]: `${window.webpackPublicPath || process.env.PUBLIC_PATH}${process.env.VERSIONED_STATIC_ROOT}`,
     [Variable.STATIC_ROOT]: `${window.webpackPublicPath || process.env.PUBLIC_PATH}${process.env.STATIC_ROOT}`,

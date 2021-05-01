@@ -5,18 +5,30 @@ import getStore from '@/store'
 import { CHANGE_LOCALE } from '@/store/modules/Application'
 
 // eslint-disable-next-line max-len
+
 const isLocaleEnabled = config.variables[Variable.LOCALE_ENABLED] && config.variables[Variable.LOCALE_ROUTING_ENABLED]
 const defaultLocale = config.properties[Property.DEFAULT_LOCALE]
+const availableLanguages = config.properties[Property.AVAILABLE_LOCALES]
 
+/*
 routes.push({
-  path: ':pathMatch(.*)*',
+  path: ':catchAll(.*)*',
   redirect: () => ({
     name: RouteNames.HOMEPAGE,
     params: { lang: defaultLocale }
   })
 })
+*/
 
 if (!isLocaleEnabled) {
+  routes.push({
+    path: ':catchAll(.*)*',
+    redirect: () => ({
+      name: RouteNames.NOT_FOUND,
+      params: { lang: defaultLocale }
+    })
+  })
+
   routes.forEach((route) => {
     // eslint-disable-next-line no-param-reassign
     route.path = `/${route.path}`
@@ -32,9 +44,9 @@ const parsedRoutes = !isLocaleEnabled
         children: routes
       },
       {
-        path: '/:pathMatch(.*)*',
+        path: '/:catchAll(.*)*',
         redirect: () => ({
-          name: RouteNames.HOMEPAGE,
+          name: RouteNames.NOT_FOUND,
           params: { lang: defaultLocale }
         })
       }
@@ -49,8 +61,13 @@ const router = createRouter({
 if (isLocaleEnabled) {
   const store = getStore()
   router.beforeEach(async (to, from, next) => {
-    store.dispatch(CHANGE_LOCALE, to.params.lang)
-    next()
+    if (to.params.lang && availableLanguages.includes(to.params.lang)) {
+      store.dispatch(CHANGE_LOCALE, to.params.lang)
+      next()
+    } else {
+      // next({ name: RouteNames.NOT_FOUND })
+      router.replace({ name: RouteNames.NOT_FOUND, params: { lang: defaultLocale } })
+    }
   })
 }
 
