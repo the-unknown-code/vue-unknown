@@ -1,6 +1,7 @@
 /* eslint-disable global-require */
 module.exports = {
   mode: 'jit',
+  darkMode: 'class',
   presets: [require('./tailwind.preset.js')],
   purge: {
     content: ['./index.html', './style/*', './src/**/*.{vue,js,ts,jsx,tsx}'],
@@ -8,7 +9,7 @@ module.exports = {
     mode: 'layers'
   },
   theme: {
-    // Extend the default Tailwind config here
+    typography: (theme) => ({}),
     extend: {}
     // Replace the default Tailwind config here
   },

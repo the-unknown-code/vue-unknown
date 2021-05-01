@@ -1,3 +1,8 @@
+export const Theme = {
+  LIGHT: 'light',
+  DARK: 'dark'
+}
+
 export const Environment = {
   PRODUCTION: 'production',
   DEVELOPMENT: 'development'
@@ -9,7 +14,9 @@ export const Variable = {
   STATIC_ROOT: 'static-root',
   PUBLIC_PATH: 'public-path',
   VERSIONED_STATIC_ROOT: 'versioned-static-root',
-  SERVICE_WORKER_ENABLED: 'service-worker'
+  SERVICE_WORKER_ENABLED: 'service-worker',
+  THEME_MODE_ENABLED: 'theme-mode-enabled',
+  THEME_MODE: 'theme-mode'
 }
 
 export const Property = {
@@ -31,6 +38,8 @@ const availableLanguages = ['en', 'ja']
 export default {
   environment: process.env.NODE_ENV,
   variables: {
+    [Variable.THEME_MODE_ENABLED]: true,
+    [Variable.THEME_MODE]: window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? Theme.DARK : Theme.LIGHT,
     [Variable.SERVICE_WORKER_ENABLED]: true,
     [Variable.LOCALE_ENABLED]: true,
     [Variable.LOCALE_ROUTING_ENABLED]: true,
@@ -39,8 +48,8 @@ export default {
     [Variable.PUBLIC_PATH]: `${window.webpackPublicPath || process.env.PUBLIC_PATH}`
   },
   urls: {
-    [URL.DEVELOPMENT_API_URL]: '',
-    [URL.PRODUCTION_API_URL]: ''
+    [URL.DEVELOPMENT_API_URL]: '::prod',
+    [URL.PRODUCTION_API_URL]: '::dev'
   },
   properties: {
     [Property.FALLBACK_LOCALE]: availableLanguages[0],

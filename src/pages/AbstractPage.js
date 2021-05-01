@@ -6,7 +6,8 @@ export default defineComponent({
   computed: {
     ...mapState({
       sw: (state) => state.Application.sw,
-      sh: (state) => state.Application.sh
+      sh: (state) => state.Application.sh,
+      mediaState: (state) => state.Application.mediaState
     })
   }
 })
