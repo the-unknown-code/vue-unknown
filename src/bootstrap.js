@@ -14,9 +14,9 @@ import WaitForStylesheetsLoaded from '@/utils/WaitForStylesheetsLoaded'
 import createPath from '@/utils/RouteUtils'
 import { getVersioned, getStatic } from '@/utils/AssetPath'
 import MediaTracker, { MediaState } from '@/utils/MediaTracker'
-import config, { Property, Variable, Environment } from '@/config'
+import config, { Property, Variable, Environment, Theme } from '@/config'
 import $eventBus, { Events } from '@/events'
-import { SET_LOCALE } from '@/store/modules/Application'
+import { SET_LOCALE, SET_THEME_MODE } from '@/store/modules/Application'
 import directives from '@/directives'
 import components from '@/components'
 import App from './app/App.vue'
@@ -35,7 +35,12 @@ const $devMode = process.env.NODE_ENV === Environment.DEVELOPMENT
 const startup = async () => {
   sync(store, router)
 
+  // store theme mode
+  store.commit(SET_THEME_MODE, config.variables[Variable.THEME_MODE])
+
+  // store the current locale
   store.commit(SET_LOCALE, config.properties[Property.DEFAULT_LOCALE])
+
   app.use(InstallPlugin, {
     $http: axios,
     $vRoot: config.variables[Variable.VERSIONED_STATIC_ROOT],
@@ -44,6 +49,7 @@ const startup = async () => {
     $eventBus,
     $devMode,
     Events,
+    Theme,
     RouteNames,
     MediaState,
     createPath,

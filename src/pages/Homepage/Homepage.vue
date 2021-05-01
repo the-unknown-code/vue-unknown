@@ -13,8 +13,9 @@
             href="https://github.com/the-unknown-code/vue-skeleton/wiki/Documentation"
             target="_blank"
             class="block mt-2 text-black dark:text-gray-400 font-semibold hover:underline"
-            >Wiki</a
           >
+            Wiki
+          </a>
         </div>
       </div>
     </div>

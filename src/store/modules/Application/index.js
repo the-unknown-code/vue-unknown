@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { loadLocale, setI18nLanguage } from '@/plugins/i18n'
+import config, { Variable, Theme } from '@/config'
 
 const namespace = 'Application'
 
@@ -7,16 +8,18 @@ const namespace = 'Application'
 export const SET_LOCALE = `${namespace}/setLocale`
 export const SET_STAGE = `${namespace}/setStage`
 export const SET_MEDIA_STATE = `${namespace}/setMediaState`
+export const SET_THEME_MODE = `${namespace}/setThemeMode`
 
 // Actions
 export const CHANGE_LOCALE = `${namespace}/changeLocale`
 
 export default {
   state: {
+    themeMode: null,
     locale: null,
     mediaState: null,
-    sw: 0,
-    sh: 0
+    sw: window.innerWidth,
+    sh: window.innerHeight
   },
   getters: {},
   mutations: {
@@ -29,6 +32,14 @@ export default {
     },
     [SET_MEDIA_STATE](state, mediaState) {
       state.mediaState = mediaState
+    },
+    [SET_THEME_MODE](state, themeMode) {
+      state.themeMode = themeMode
+      if (config.variables[Variable.THEME_MODE_ENABLED]) {
+        document.documentElement.classList.remove(Theme.LIGHT)
+        document.documentElement.classList.remove(Theme.DARK)
+        document.documentElement.classList.add(themeMode)
+      }
     }
   },
   actions: {
