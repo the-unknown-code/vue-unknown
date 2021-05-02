@@ -11,6 +11,7 @@
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Service Worker](https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin)
 - [SCSS](https://sass-lang.com/)
+- [Favicon Generator](https://github.com/jantimon/favicons-webpack-plugin)
 - [Axios](https://github.com/axios/axios)
 - [Airbnb Coding Standard](https://github.com/airbnb/javascript)
 - [Prettier](https://prettier.io/)

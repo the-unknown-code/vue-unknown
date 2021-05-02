@@ -24,7 +24,9 @@ export async function loadLocale(locale) {
 }
 
 export default function setupI18n(options = { locale: config.properties[Property.DEFAULT_LOCALE] }) {
-  i18n = createI18n({ ...options, fallbackLocale: config.properties[Property.FALLBACK_LOCALE] })
-  setI18nLanguage(options.locale)
-  return i18n
+  return new Promise((resolve) => {
+    i18n = createI18n({ ...options, fallbackLocale: config.properties[Property.FALLBACK_LOCALE] })
+    setI18nLanguage(options.locale)
+    resolve(i18n)
+  })
 }

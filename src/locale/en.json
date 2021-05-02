@@ -1,5 +1,7 @@
 {
     "title": "Vue Skeleton",
-    "subtitle": "A Web Framework base on Vue 3",
-    "description": "Vue skeleton comes packaged with a variety of tools for creating a (multilingual) SPA. The skeleton allows to get up and running in a matter of minutes."
+    "subtitle": "A Web Framework based on Vue 3",
+    "description": "Vue skeleton comes packaged with a variety of tools for creating a (multilingual) SPA. The skeleton allows to get up and running in a matter of minutes.",
+    "documentation": "Documentation",
+    "author-website": "Author Website"
 }

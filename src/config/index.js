@@ -1,3 +1,9 @@
+export const RouterMode = {
+  HISTORY: 'history',
+  HASH: 'hash',
+  ABSTRACT: 'abstract'
+}
+
 export const Theme = {
   LIGHT: 'light',
   DARK: 'dark'
@@ -20,6 +26,7 @@ export const Variable = {
 }
 
 export const Property = {
+  ROUTER_MODE: 'router-mode',
   FALLBACK_LOCALE: 'fallback-locale',
   DEFAULT_LOCALE: 'default-locale',
   AVAILABLE_LOCALES: 'available-locales'
@@ -33,7 +40,7 @@ export const URL = {
 const { pathname } = window.location
 const language = pathname.split('/')[1]
 const defaultLanguage = language.length ? language.toLowerCase() : 'en'
-const availableLanguages = ['en', 'ja']
+const availableLanguages = ['en']
 
 export default {
   environment: process.env.NODE_ENV,
@@ -41,7 +48,7 @@ export default {
     [Variable.THEME_MODE_ENABLED]: true,
     [Variable.THEME_MODE]: window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? Theme.DARK : Theme.LIGHT,
     [Variable.SERVICE_WORKER_ENABLED]: true,
-    [Variable.LOCALE_ENABLED]: true,
+    [Variable.LOCALE_ENABLED]: false,
     [Variable.LOCALE_ROUTING_ENABLED]: true,
     [Variable.VERSIONED_STATIC_ROOT]: `${window.webpackPublicPath || process.env.PUBLIC_PATH}${process.env.VERSIONED_STATIC_ROOT}`,
     [Variable.STATIC_ROOT]: `${window.webpackPublicPath || process.env.PUBLIC_PATH}${process.env.STATIC_ROOT}`,
@@ -52,6 +59,7 @@ export default {
     [URL.PRODUCTION_API_URL]: '::dev'
   },
   properties: {
+    [Property.ROUTER_MODE]: RouterMode.HISTORY,
     [Property.FALLBACK_LOCALE]: availableLanguages[0],
     [Property.DEFAULT_LOCALE]: availableLanguages.includes(defaultLanguage) ? defaultLanguage : availableLanguages[0],
     [Property.AVAILABLE_LOCALES]: availableLanguages
