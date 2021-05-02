@@ -2,7 +2,7 @@
 /* eslint-disable object-shorthand */
 
 /*
- * Simple VueHead based on https://github.com/ktquez/vue-head/blob/master/vue-head.js
+ * Simplified VueHead based on https://github.com/ktquez/vue-head/blob/master/vue-head.js
  */
 
 const KeyType = {
@@ -12,7 +12,16 @@ const KeyType = {
 
 const Util = {
   abbr: {
-    n: 'name'
+    ch: 'charset',
+    n: 'name',
+    ip: 'itemprop',
+    c: 'content',
+    p: 'property',
+    r: 'rel',
+    h: 'href',
+    s: 'src',
+    a: 'async',
+    d: 'defer'
   },
 
   getNode: (node) => document.getElementsByTagName(node)[0],
