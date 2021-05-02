@@ -2,8 +2,8 @@
   <div class="w-full h-full flex flex-col font-mono justify-center items-center dark:bg-gray-900">
     <div class="block max-w-md my-2 mx-auto rounded-xl shadow-md overflow-hidden md:max-w-2xl">
       <div class="md:flex">
-        <div class="md:flex-shrink-0">
-          <img class="h-48 w-full object-contain md:w-48 px-6 py-6" :src="getVersioned('images/vue-skeleton-logo.png')" alt="" />
+        <div class="md:flex-shrink-0 md:flex justyfy-center">
+          <img class="w-full object-contain md:w-48 px-6 py-6" :src="getVersioned('images/vue-skeleton-logo.png')" alt="" />
         </div>
         <div class="p-8 text-center md:text-left">
           <div class="uppercase tracking-wide text-sm font-semibold text-black dark:text-gray-200">{{ $t('title') }}</div>

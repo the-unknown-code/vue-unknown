@@ -8,6 +8,7 @@ import router from '@/router'
 import { RouteNames } from '@/router/routes'
 import getStore from '@/store'
 import i18nSetup, { loadLocale } from '@/plugins/i18n'
+import vueHead from '@/plugins/vue-head'
 import InstallPlugin from '@/utils/InstallPlugin'
 import RegisterPlugin from '@/utils/RegisterPlugin'
 import WaitForStylesheetsLoaded from '@/utils/WaitForStylesheetsLoaded'
@@ -41,6 +42,7 @@ const startup = async () => {
   // store the current locale
   store.commit(SET_LOCALE, config.properties[Property.DEFAULT_LOCALE])
 
+  app.use(vueHead)
   app.use(InstallPlugin, {
     $http: axios,
     $vRoot: config.variables[Variable.VERSIONED_STATIC_ROOT],
