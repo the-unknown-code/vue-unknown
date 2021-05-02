@@ -3,6 +3,10 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'AbstractPage',
+  head: {
+    title: null,
+    meta: []
+  },
   computed: {
     ...mapState({
       sw: (state) => state.Application.sw,
