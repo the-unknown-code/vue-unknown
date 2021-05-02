@@ -61,10 +61,7 @@ const startup = async () => {
   app.use(store).use(router).mount('#app')
 }
 
-if (config.variables[Variable.LOCALE_ENABLED]) {
-  const i18n = i18nSetup()
+i18nSetup().then((i18n) => {
   app.use(i18n)
   loadLocale(config.properties[Property.DEFAULT_LOCALE]).then(startup)
-} else {
-  startup()
-}
+})

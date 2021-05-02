@@ -1,5 +1,4 @@
 <template>
-  <!--
   <div class="w-full h-full flex flex-col font-mono justify-center items-center dark:bg-gray-900">
     <div class="block max-w-md my-2 mx-auto rounded-xl shadow-md overflow-hidden md:max-w-2xl">
       <div class="md:flex">
@@ -23,8 +22,6 @@
       </div>
     </div>
   </div>
-  -->
-  home
 </template>
 
 <script lang="js" src="./Homepage.js"></script>

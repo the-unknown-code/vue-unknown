@@ -1,3 +1,9 @@
+export const RouterMode = {
+  HISTORY: 'history',
+  HASH: 'hash',
+  ABSTRACT: 'abstract'
+}
+
 export const Theme = {
   LIGHT: 'light',
   DARK: 'dark'
@@ -20,6 +26,7 @@ export const Variable = {
 }
 
 export const Property = {
+  ROUTER_MODE: 'router-mode',
   FALLBACK_LOCALE: 'fallback-locale',
   DEFAULT_LOCALE: 'default-locale',
   AVAILABLE_LOCALES: 'available-locales'
@@ -52,6 +59,7 @@ export default {
     [URL.PRODUCTION_API_URL]: '::dev'
   },
   properties: {
+    [Property.ROUTER_MODE]: RouterMode.HISTORY,
     [Property.FALLBACK_LOCALE]: availableLanguages[0],
     [Property.DEFAULT_LOCALE]: availableLanguages.includes(defaultLanguage) ? defaultLanguage : availableLanguages[0],
     [Property.AVAILABLE_LOCALES]: availableLanguages
