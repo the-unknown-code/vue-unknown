@@ -49,6 +49,9 @@ module.exports = {
     publicPath
   },
 
+  // Set to true to enabled prerendering of all routes
+  prerender: false,
+
   // Generates icons for all platforms with favicon.png from static/favicon.(png|svg) as the source image
   generateFavIcon: true,
 

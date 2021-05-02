@@ -1,6 +1,6 @@
 {
   "name": "vue-skeleton",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "A Vue Framework",
   "author": "TheUnknown hello@theunknown.ch",
   "homepage": "https://github.com/the-unknown-code/vue-skeleton",
@@ -15,7 +15,8 @@
     "generate": "node dev-tools/scripts/bin/generate.js",
     "patch": "npm version patch --no-git-tag-version",
     "minor": "npm version minor --no-git-tag-version",
-    "major": "npm version major --no-git-tag-version"
+    "major": "npm version major --no-git-tag-version",
+    "test-routes": "node dev-tools/config/scripts/prerender.routes.js"
   },
   "license": "ISC",
   "main": "src/bootstrap.js",
@@ -88,6 +89,7 @@
     "postcss-import": "^14.0.1",
     "postcss-loader": "^5.2.0",
     "postcss-preset-env": "^6.7.0",
+    "prerender-spa-plugin": "^3.4.0",
     "prettier": "^2.2.1",
     "sass": "^1.32.10",
     "sass-loader": "^11.0.1",
