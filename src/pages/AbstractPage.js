@@ -9,5 +9,8 @@ export default defineComponent({
       sh: (state) => state.Application.sh,
       mediaState: (state) => state.Application.mediaState
     })
+  },
+  mounted() {
+    document.dispatchEvent(new Event('page-created'))
   }
 })

@@ -33,7 +33,8 @@ const parsedRoutes = !isLocaleEnabled
         path: '/:lang',
         component: { template: '<router-view />' },
         children: routes
-      },
+      }
+      /*
       {
         path: '/:catchAll(.*)*',
         redirect: () => ({
@@ -41,6 +42,7 @@ const parsedRoutes = !isLocaleEnabled
           params: { lang: defaultLocale }
         })
       }
+      */
     ]
 
 const getHistoryMode = () => {
@@ -57,6 +59,7 @@ const router = createRouter({
 if (isLocaleEnabled) {
   const store = getStore()
   router.beforeEach(async (to, from, next) => {
+    console.log(to)
     if (to.params.lang && availableLanguages.includes(to.params.lang)) {
       currentLocale = to.params.lang
       store.dispatch(CHANGE_LOCALE, currentLocale)
