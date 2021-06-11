@@ -11,6 +11,6 @@ export default defineComponent({
     })
   },
   mounted() {
-    document.dispatchEvent(new Event('page-created'))
+    document.dispatchEvent(new Event(this.Events.PAGE_CREATED))
   }
 })
