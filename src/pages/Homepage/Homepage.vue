@@ -10,7 +10,7 @@
           <p class="block mt-1 text-lg leading-tight font-medium text-black dark:text-gray-900">{{ $t('subtitle') }}</p>
           <p class="mt-2 text-sm text-gray-500" v-html="$t('description')"></p>
           <div class="block mt-3 text-black dark:text-gray-600">
-            <a href="https://github.com/the-unknown-code/vue-skeleton/wiki/Documentation" target="_blank" class="mt-2 font-semibold hover:underline">
+            <a href="https://github.com/the-unknown-code/vue-unknown/wiki/Documentation" target="_blank" class="mt-2 font-semibold hover:underline">
               <small>{{ $t('documentation') }}</small>
             </a>
             /

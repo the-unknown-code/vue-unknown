@@ -10,5 +10,8 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/
     }
+  },
+  docs: {
+    theme: themes.dark
   }
 }

@@ -2,7 +2,7 @@
 const program = require('commander')
 const chalk = require('chalk')
 
-console.log(chalk.blue('Vue Skeleton Generator'))
+console.log(chalk.blue('Vue Unknown Generator'))
 console.log()
 
 program

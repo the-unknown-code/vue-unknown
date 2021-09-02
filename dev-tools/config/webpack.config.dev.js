@@ -17,13 +17,13 @@ module.exports = detectPort(config.devServer.port).then((port) => {
     devWebpackConfig.plugins.push(
       new FriendlyErrorsWebpackPlugin({
         compilationSuccessInfo: {
-          messages: [`Vue Skeleton - Your application is running here: ${config.devServer.useHttps ? 'https' : 'http'}://localhost:${port}`]
+          messages: [`Vue Unknown - Your application is running here: ${config.devServer.useHttps ? 'https' : 'http'}://localhost:${port}`]
         }
       })
     )
   } else {
     // eslint-disable-next-line no-throw-literal
-    throw 'Vue Skeleton: Plugins not declared'
+    throw 'Vue Unknown: Plugins not declared'
   }
 
   return devWebpackConfig

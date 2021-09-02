@@ -8,7 +8,7 @@ const chalk = require('chalk')
 const webpack = require('webpack')
 const webpackConfig = require('../webpack.config.prod')
 
-const spinner = ora('Vue Skeleton: Building for production')
+const spinner = ora('Vue Unknown: Building for production')
 spinner.start()
 
 fs.emptyDirSync(webpackConfig.output.path)
@@ -39,7 +39,7 @@ webpack(webpackConfig, (err, stats) => {
   )
 
   console.log()
-  console.log(chalk.blue('Vue Skeleton: You can preview your build by running:'), chalk.blue.bold('yarn preview'))
-  console.log(chalk.blue('Vue Skeleton: You can analyze your build by running:'), chalk.blue.bold('yarn analyze'))
+  console.log(chalk.blue('Vue Unknown: You can preview your build by running:'), chalk.blue.bold('yarn preview'))
+  console.log(chalk.blue('Vue Unknown: You can analyze your build by running:'), chalk.blue.bold('yarn analyze'))
   console.log()
 })
