@@ -2,11 +2,9 @@ import { create } from '@storybook/theming'
 
 export default create({
   base: 'dark',
-  brandTitle: 'Unknown Storybook',
-  brandUrl: 'https://theunknown.ch',
-
-  fontBase: '"Roboto", sans-serif',
-  fontCode: 'monospace',
-
-  brandImage: 'https://raw.githubusercontent.com/the-unknown-code/vue-skeleton/develop/.storybook/unknown-storybook-logo.png'
+  brandTitle: 'My custom storybook',
+  brandUrl: 'https://example.com',
+  fontBase: 'monospace, sans-serif',
+  fontCode: 'monospace'
+  // brandImage: 'https://place-hold.it/350x150',
 })
