@@ -40,8 +40,6 @@ module.exports = {
         }
       ]
     })
-
-    console.log(config.resolve.alias)
     return config
   }
 }
