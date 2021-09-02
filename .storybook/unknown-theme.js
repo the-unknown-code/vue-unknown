@@ -8,5 +8,5 @@ export default create({
   fontBase: '"Roboto", sans-serif',
   fontCode: 'monospace',
 
-  brandImage: 'https://raw.githubusercontent.com/the-unknown-code/vue-skeleton/develop/static/images/vue-unknown-logo.png'
+  brandImage: 'https://raw.githubusercontent.com/the-unknown-code/vue-skeleton/develop/.storybook/unknown-storybook-logo.png'
 })
