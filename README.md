@@ -1,6 +1,5 @@
-# Vue Skeleton
+# Vue Unknown
 ## A web framework based on Vue 3
-![Vue Skeleton](https://github.com/the-unknown-code/vue-skeleton/blob/main/static/images/vue-skeleton-logo-xs.png?raw=true)
 
 # Features 
 - [Vuex](https://next.vuex.vuejs.org/)
@@ -10,6 +9,7 @@
 - [Webpack](https://webpack.js.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Service Worker](https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin)
+- [Storybook](https://storybook.js.org/)
 - [SCSS](https://sass-lang.com/)
 - [Favicon Generator](https://github.com/jantimon/favicons-webpack-plugin)
 - [Airbnb Coding Standard](https://github.com/airbnb/javascript)
@@ -17,5 +17,5 @@
 - [Lint Staged](https://github.com/okonet/lint-staged)
 
 # Documentation
-- [Vue Skeleton: Wiki](https://github.com/the-unknown-code/vue-skeleton/wiki/Documentation)
-- [Vue Skeleton: Template generator]()
+- [Vue Unknown: Wiki](https://github.com/the-unknown-code/vue-unknown/wiki/Documentation)
+- [Vue Unknown: Template generator]()
