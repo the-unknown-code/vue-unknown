@@ -12,10 +12,9 @@ import RegisterPlugin from '@/utils/RegisterPlugin'
 import WaitForStylesheetsLoaded from '@/utils/WaitForStylesheetsLoaded'
 import createPath from '@/utils/RouteUtils'
 import { getVersioned, getStatic } from '@/utils/AssetPath'
-import MediaTracker, { MediaState } from '@/utils/MediaTracker'
-import config, { Property, Variable, Environment, Theme } from '@/config'
+import config, { Property, Variable, Environment } from '@/config'
 import $eventBus, { Events } from '@/events'
-import { SET_LOCALE, SET_THEME_MODE } from '@/store/modules/Application'
+import { SET_LOCALE } from '@/store/modules/Application'
 import directives from '@/directives'
 import components from '@/components'
 import App from './app/App.vue'
@@ -26,15 +25,20 @@ require('@/utils/ServiceWorker')
 const store = getStore()
 const app = createApp(App)
 
+/*
+app.config.errorHandler = (err, vm, info) => {
+  console.log(info)
+}
+*/
+
 // Register global directives and components
 RegisterPlugin.registerDirectives(app, directives)
 RegisterPlugin.registerComponents(app, components)
 
 const $devMode = process.env.NODE_ENV === Environment.DEVELOPMENT
-const startup = async () => {
-  // store theme mode
-  store.commit(SET_THEME_MODE, config.variables[Variable.THEME_MODE])
+// if ($devMode) app.config.performance = true
 
+const startup = async () => {
   // store the current locale
   store.commit(SET_LOCALE, config.properties[Property.DEFAULT_LOCALE])
 
@@ -42,13 +46,10 @@ const startup = async () => {
   app.use(InstallPlugin, {
     $vRoot: config.variables[Variable.VERSIONED_STATIC_ROOT],
     $sRoot: config.variables[Variable.STATIC_ROOT],
-    $mediaTracker: new MediaTracker(store),
     $eventBus,
     $devMode,
     Events,
-    Theme,
     RouteNames,
-    MediaState,
     createPath,
     getVersioned,
     getStatic
