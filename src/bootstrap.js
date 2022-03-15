@@ -22,18 +22,10 @@ require('@/utils/ServiceWorker')
 const store = getStore()
 const app = createApp(App)
 
-/*
-app.config.errorHandler = (err, vm, info) => {
-  console.log(info)
-}
-*/
-
 // Register global directives and components
 RegisterPlugin.registerComponents(app, components)
 
 const $devMode = process.env.NODE_ENV === Environment.DEVELOPMENT
-const startup = async () => {
-  // store theme mode
 
 const startup = async () => {
   // store the current locale
