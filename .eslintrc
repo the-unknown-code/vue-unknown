@@ -19,6 +19,7 @@
     "prettier/prettier": ["error", {
       "endOfLine": "auto"
     }],
+    "import/extensions": "off",
     "import/no-unresolved": 0,
     "import/no-extraneous-dependencies": 0,
     "vue/no-v-html": "off",
