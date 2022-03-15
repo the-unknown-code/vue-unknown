@@ -6,7 +6,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const WorkboxPlugin = require('workbox-webpack-plugin')
 const BeautifyHtmlWebpackPlugin = require('beautify-html-webpack-plugin')
-const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
@@ -64,18 +63,7 @@ module.exports =
         filename: path.posix.join(config.dist.versionPath, 'css/[name].css')
       }),
       new WebpackBar(),
-      new VueLoaderPlugin(),
-      new ImageMinimizerPlugin({
-        minimizerOptions: {
-          // Lossless optimization with custom option
-          // Feel free to experiment with options for better result for you
-          plugins: [
-            ['gifsicle', { interlaced: true }],
-            ['jpegtran', { progressive: true }],
-            ['optipng', { optimizationLevel: 5 }]
-          ]
-        }
-      })
+      new VueLoaderPlugin()
     ]
 
     /*
