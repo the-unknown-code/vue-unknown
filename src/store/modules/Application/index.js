@@ -18,14 +18,15 @@ export default {
     themeMode: null,
     locale: null,
     mediaState: null,
-    sw: window.innerWidth,
-    sh: window.innerHeight
+    stage: {
+      width: window.innerWidth,
+      height: window.innerHeight
+    }
   },
   getters: {},
   mutations: {
-    [SET_STAGE](state, { sw, sh }) {
-      state.sw = sw
-      state.sh = sh
+    [SET_STAGE](state, { width, height }) {
+      state.stage = { width, height }
     },
     [SET_LOCALE](state, locale) {
       state.locale = locale

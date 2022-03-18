@@ -29,7 +29,8 @@ if (fs.existsSync(targetFolder)) {
 
 copyFolderRecursiveSync(source, destination)
 renamePath(`${destination}{name_pc}`, `${destination}${pageName}`)
-renamePath(`${destination}${pageName}\\{name_pc}.js`, `${destination}${pageName}\\${pageName}.js`)
-renamePath(`${destination}${pageName}\\{name_pc}.vue`, `${destination}${pageName}\\${pageName}.vue`)
-replaceInFile(`${destination}${pageName}\\${pageName}.js`, pageName)
-replaceInFile(`${destination}${pageName}\\${pageName}.vue`, pageName)
+renamePath(`${destination}${pageName}/name_pc}.js`, `${destination}${pageName}/${pageName}.js`)
+renamePath(`${destination}${pageName}/{name_pc}.vue`, `${destination}${pageName}/${pageName}.vue`)
+replaceInFile(`${destination}${pageName}/index.js`, pageName)
+replaceInFile(`${destination}${pageName}/${pageName}.js`, pageName)
+replaceInFile(`${destination}${pageName}/${pageName}.vue`, pageName)

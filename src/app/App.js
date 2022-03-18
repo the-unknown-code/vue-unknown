@@ -1,24 +1,25 @@
-import { defineComponent } from 'vue'
-import { mapActions, mapMutations } from 'vuex'
-import { SET_STAGE, CHANGE_LOCALE } from '@/store/modules/Application'
+import { defineComponent, ref } from 'vue'
+import { useStore } from 'vuex'
+import { useResizeObserver, useDebounceFn } from '@vueuse/core'
+import { SET_STAGE } from '@/store/modules/Application'
 
 export default defineComponent({
   name: 'App',
-  created() {
-    window.addEventListener(this.Events.RESIZE, this.onResizeHandler)
-    this.onResizeHandler()
-  },
-  methods: {
-    ...mapActions({
-      changeLanguage: CHANGE_LOCALE
-    }),
-    ...mapMutations({
-      setStage: SET_STAGE
-    }),
-    onResizeHandler() {
-      const { innerWidth, innerHeight } = window
-      this.setStage({ sw: innerWidth, sh: innerHeight })
-      this.$eventBus.$emit(this.Events.RESIZE)
+  setup() {
+    const store = useStore()
+    const app = ref(null)
+
+    // Resize Handler
+    const onResizeHandler = useDebounceFn((entries) => {
+      const entry = entries[0]
+      const { width, height } = entry.contentRect
+      store.commit(SET_STAGE, { width, height })
+    }, 40)
+
+    useResizeObserver(app, onResizeHandler)
+
+    return {
+      app
     }
   }
 })

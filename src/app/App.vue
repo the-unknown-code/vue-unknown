@@ -1,6 +1,7 @@
 <template>
-  <router-view />
-  <DebugInfo v-if="$devMode" />
+  <div ref="app">
+    <router-view />
+  </div>
 </template>
 
 <script lang="js" src="./App.js"></script>
