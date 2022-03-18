@@ -1,7 +1,7 @@
 {
   "name": "vue-unknown",
-  "version": "1.1.0",
-  "description": "A Vue Framework",
+  "version": "0.8.0",
+  "description": "A Vue Skeleton Framework",
   "author": "Andrea Giuffrida hello@unk.digital",
   "homepage": "https://github.com/the-unknown-code/vue-unknown",
   "scripts": {
@@ -85,6 +85,7 @@
     "git-revision-webpack-plugin": "^3.0.6",
     "html-webpack-plugin": "^5.3.1",
     "http": "^0.0.1-security",
+    "image-minimizer-webpack-plugin": "^3.2.3",
     "imagemin-gifsicle": "^7.0.0",
     "imagemin-jpegtran": "^7.0.0",
     "imagemin-optipng": "^8.0.0",

@@ -25,7 +25,11 @@ module.exports =
             },
             new CssMinimizerPlugin()
           ],
-          runtimeChunk: 'single',
+          removeAvailableModules: false,
+          removeEmptyChunks: false,
+          splitChunks: false
+
+          /*
           splitChunks: {
             chunks: 'all',
             maxInitialRequests: Infinity,
@@ -44,5 +48,7 @@ module.exports =
               }
             }
           }
+
+          */
         }
   })

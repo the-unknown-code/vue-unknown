@@ -59,7 +59,6 @@ const router = createRouter({
 if (isLocaleEnabled) {
   const store = getStore()
   router.beforeEach(async (to, from, next) => {
-    console.log(to)
     if (to.params.lang && availableLanguages.includes(to.params.lang)) {
       currentLocale = to.params.lang
       store.dispatch(CHANGE_LOCALE, currentLocale)
