@@ -1,6 +1,6 @@
 {
   "name": "vue-unknown",
-  "version": "0.8.0",
+  "version": "0.9.1",
   "description": "A Vue Skeleton Framework",
   "author": "Andrea Giuffrida hello@unk.digital",
   "homepage": "https://github.com/the-unknown-code/vue-unknown",
@@ -16,26 +16,13 @@
     "major": "npm version major --no-git-tag-version",
     "test-routes": "node dev-tools/config/scripts/prerender.routes.js",
     "storybook": "start-storybook -p 6006 -s ./.storybook/images",
-    "build-storybook": "build-storybook",
-    "prepare": "husky install",
-    "test": "lint-staged"
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx}": [
-      "eslint . --fix",
-      "git add"
-    ],
-    "style/**/*.scss": [
-      "stylelint --syntax scss --fix",
-      "git add"
-    ]
+    "build-storybook": "build-storybook"
   },
   "license": "ISC",
   "main": "src/bootstrap.js",
   "dependencies": {
     "@vueuse/core": "^8.0.1",
     "core-js": "^3.10.2",
-    "gsap": "^3.0.0-beta.11",
     "mitt": "^2.1.0",
     "regenerator-runtime": "^0.13.7",
     "vue": "^3.0.11",
