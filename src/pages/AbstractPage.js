@@ -5,9 +5,7 @@ export default defineComponent({
   name: 'AbstractPage',
   computed: {
     ...mapState({
-      sw: (state) => state.Application.sw,
-      sh: (state) => state.Application.sh,
-      mediaState: (state) => state.Application.mediaState
+      stage: (state) => state.Application.stage
     })
   },
   mounted() {

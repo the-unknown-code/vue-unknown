@@ -7,7 +7,6 @@ const namespace = 'Application'
 // Mutations
 export const SET_LOCALE = `${namespace}/setLocale`
 export const SET_STAGE = `${namespace}/setStage`
-export const SET_MEDIA_STATE = `${namespace}/setMediaState`
 export const SET_THEME_MODE = `${namespace}/setThemeMode`
 
 // Actions
@@ -17,7 +16,6 @@ export default {
   state: {
     themeMode: null,
     locale: null,
-    mediaState: null,
     stage: {
       width: window.innerWidth,
       height: window.innerHeight
@@ -30,9 +28,6 @@ export default {
     },
     [SET_LOCALE](state, locale) {
       state.locale = locale
-    },
-    [SET_MEDIA_STATE](state, mediaState) {
-      state.mediaState = mediaState
     },
     [SET_THEME_MODE](state, themeMode) {
       state.themeMode = themeMode
