@@ -16,7 +16,9 @@
     "major": "npm version major --no-git-tag-version",
     "test-routes": "node dev-tools/config/scripts/prerender.routes.js",
     "storybook": "start-storybook -p 6006 -s ./.storybook/images",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "prepare": "husky install",
+    "test": ""
   },
   "license": "ISC",
   "main": "src/bootstrap.js",
@@ -85,6 +87,7 @@
     "git-revision-webpack-plugin": "^3.0.6",
     "html-webpack-plugin": "^5.3.1",
     "http": "^0.0.1-security",
+    "husky": "^7.0.0",
     "image-minimizer-webpack-plugin": "^3.2.3",
     "imagemin-gifsicle": "^7.0.0",
     "imagemin-jpegtran": "^7.0.0",
