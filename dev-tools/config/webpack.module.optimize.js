@@ -7,7 +7,7 @@ module.exports =
     ...webpackConfig,
     optimization: isDevelopment
       ? {
-          noEmitOnErrors: true
+          emitOnErrors: false
         }
       : {
           minimize: true,

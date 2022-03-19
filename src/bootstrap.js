@@ -1,7 +1,7 @@
 import '../style/tailwind.scss'
 import '../style/main.scss'
 
-import { createApp } from 'vue'
+import { createApp, createSSRApp } from 'vue'
 import router from '@/router'
 import { RouteNames } from '@/router/routes'
 import getStore from '@/store'
@@ -20,7 +20,7 @@ import App from './app/App.vue'
 require('@/utils/ServiceWorker')
 
 const store = getStore()
-const app = createApp(App)
+const app = createSSRApp(App)
 
 // Register global directives and components
 RegisterPlugin.registerComponents(app, components)

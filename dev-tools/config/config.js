@@ -1,8 +1,5 @@
 const path = require('path')
 const { argv } = require('yargs')
-const GitRevisionPlugin = require('git-revision-webpack-plugin')
-
-const gitRevisionPlugin = new GitRevisionPlugin()
 
 const BuildType = {
   DEVELOPMENT: 'development',
@@ -71,10 +68,7 @@ module.exports = {
       STATIC_ROOT: JSON.stringify(''),
       PUBLIC_ROOT: JSON.stringify(''),
       PUBLIC_PATH: JSON.stringify('/'),
-      PACKAGE_VERSION: JSON.stringify(packageVersion),
-      VERSION: JSON.stringify(gitRevisionPlugin.version()),
-      COMMITHASH: JSON.stringify(gitRevisionPlugin.commithash()),
-      BRANCH: JSON.stringify(gitRevisionPlugin.branch())
+      PACKAGE_VERSION: JSON.stringify(packageVersion)
     },
     [BuildType.PRODUCTION]: {
       NODE_ENV: JSON.stringify(BuildType.PRODUCTION),
@@ -82,10 +76,7 @@ module.exports = {
       STATIC_ROOT: JSON.stringify(''),
       PUBLIC_ROOT: JSON.stringify(publicPath),
       PUBLIC_PATH: JSON.stringify(publicPath),
-      PACKAGE_VERSION: JSON.stringify(packageVersion),
-      VERSION: JSON.stringify(gitRevisionPlugin.version()),
-      COMMITHASH: JSON.stringify(gitRevisionPlugin.commithash()),
-      BRANCH: JSON.stringify(gitRevisionPlugin.branch())
+      PACKAGE_VERSION: JSON.stringify(packageVersion)
     }
   }
 }
